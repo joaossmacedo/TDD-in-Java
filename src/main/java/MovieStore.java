@@ -37,6 +37,14 @@ public class MovieStore {
     }
 
     public List<Movie> findByReleaseYear(int from, int to) {
-        return null;
+        List<Movie> results = new LinkedList<Movie>();
+
+        for (Movie movie : movies) {
+            if (movie.getReleaseYear() > from && movie.getReleaseYear() < to ){
+                results.add(movie);
+            }
+        }
+
+        return results;
     }
 }
