@@ -23,4 +23,8 @@ public class MovieStore {
     public void add(Movie movie){
         movies.add(movie);
     }
+
+    public List<Movie> findByDirector(String director) {
+        return null;
+    }
 }
