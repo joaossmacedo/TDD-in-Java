@@ -11,11 +11,11 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 
 public class MovieStoreTest {
     private final MovieStore movieStore = new MovieStore();
-    private final Movie harry_potter = new Movie("Harry Potter", "Rowling");
-    private final Movie star_wars = new Movie("Star Wars", "Shwimmer");
-    private final Movie star_trek = new Movie("STAR Trek", "Shwimmer");
-    private final Movie shawshank_redemption = new Movie("Shawshank Redemption", "Bob");
-    private final Movie take_that = new Movie("Take That", "Shwimmer");
+    private final Movie harry_potter = new Movie("Harry Potter", "Rowling", 2000);
+    private final Movie star_wars = new Movie("Star Wars", "Shwimmer", 1999);
+    private final Movie star_trek = new Movie("STAR Trek", "Shwimmer", 2002);
+    private final Movie shawshank_redemption = new Movie("Shawshank Redemption", "Bob", 2001);
+    private final Movie take_that = new Movie("Take That", "Shwimmer", 2010);
 
     @Before
     public void setUp() throws Exception {
@@ -52,5 +52,12 @@ public class MovieStoreTest {
         assertThat(results, containsInAnyOrder(star_trek, star_wars, take_that));
     }
 
+    @Test
+    public void findsMoviesWhenReleaseYearIsBetweenTwoValues() {
+        List<Movie> results = movieStore.findByReleaseYear(1999, 2002);
+
+        assertThat(results.size(), is(2));
+        assertThat(results, containsInAnyOrder(harry_potter, shawshank_redemption));
+    }
 
 }
