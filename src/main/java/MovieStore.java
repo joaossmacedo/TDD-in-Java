@@ -7,4 +7,7 @@ public class MovieStore {
     public List<Movie> findByPartialTitle(String partialTitle) {
         return new LinkedList<Movie>();
     }
+    public void add(Movie movie){
+
+    }
 }
