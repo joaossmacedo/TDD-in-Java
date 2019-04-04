@@ -25,6 +25,14 @@ public class MovieStore {
     }
 
     public List<Movie> findByDirector(String director) {
-        return null;
+        List<Movie> results = new LinkedList<Movie>();
+
+        for (Movie movie : movies) {
+            if (movie.getDirector().toUpperCase().equals(director.toUpperCase())){
+                results.add(movie);
+            }
+        }
+
+        return results;
     }
 }

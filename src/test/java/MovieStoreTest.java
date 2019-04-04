@@ -48,7 +48,7 @@ public class MovieStoreTest {
     public void findsMoviesWhenDirectorExactlyMatches() {
         List<Movie> results = movieStore.findByDirector("Shwimmer");
 
-        assertThat(results.size(), is(2));
+        assertThat(results.size(), is(3));
         assertThat(results, containsInAnyOrder(star_trek, star_wars, take_that));
     }
 
