@@ -9,12 +9,15 @@ public class MovieStore {
     List<Movie> movies = new LinkedList<Movie>();
     
     public List<Movie> findByPartialTitle(String partialTitle) {
+        List<Movie> results = new LinkedList<Movie>();
+
         for (Movie movie : movies) {
-            if (movie.getTitle().contains(partialTitle)){
-                return asList(movie);
+            if (movie.getTitle().toUpperCase().contains(partialTitle.toUpperCase())){
+                results.add(movie);
             }
         }
-        return new LinkedList<Movie>();
+
+        return results;
     }
 
     public void add(Movie movie){
